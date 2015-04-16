@@ -7,9 +7,11 @@ if ($_GET['pw'] == $pw){
 	if ($exists->num_rows){
 		$updateSql = "UPDATE raspberrypi SET IP_ADDRESS = '{$_GET['ip']}', EMS_ID = '{$_GET['room_id']}', LAST_UPDATED = NULL WHERE MAC_ADDRESS = '{$_GET['mac']}'";
 		getConnection()->query($updateSql);
+		echo 'updated';
 	} else {
 		$insertSql = "INSERT INTO raspberrypi (MAC_ADDRESS, IP_ADDRESS, ROOM_NUMBER, EMS_ID, LAST_UPDATED) VALUES ('{$_GET['mac']}', '{$_GET['ip']}', 0, '{$_GET['room_id']}', NULL)";
 		getConnection()->query($insertSql);
+		echo 'inserted';
 	}
 }
 ?>
