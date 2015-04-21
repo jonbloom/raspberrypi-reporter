@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set("America/Detroit");
 include 'connection.php';
 include 'secret.php';
 $now = date('Y-m-d H:i:s');
